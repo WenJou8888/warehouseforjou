@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動表格</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            font-size: 16px;
+        }
+        td.selectable {
+            cursor: pointer;
+            background-color: #f9f9f9;
+        }
+        td.selectable:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <h1>互動表格</h1>
+    <table>
+        <!-- 第一行：人名 -->
+        <tr>
+            <th></th>
+            <th>小明</th>
+            <th>小華</th>
+            <th>小美</th>
+            <th>小強</th>
+            <th>小麗</th>
+        </tr>
+        <!-- 第二行：週一到週日 -->
+        <tr>
+            <th>週一</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+        <tr>
+            <th>週二</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+        <tr>
+            <th>週三</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+        <tr>
+            <th>週四</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+        <tr>
+            <th>週五</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+        <tr>
+            <th>週六</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+        <tr>
+            <th>週日</th>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+            <td class="selectable"></td>
+        </tr>
+    </table>
+
+    <script>
+        // 為所有可選擇的單元格添加點擊事件
+        document.querySelectorAll('td.selectable').forEach(cell => {
+            cell.addEventListener('click', () => {
+                const currentValue = cell.textContent.trim();
+                if (currentValue === 'O') {
+                    cell.textContent = 'X';
+                } else if (currentValue === 'X') {
+                    cell.textContent = '';
+                } else {
+                    cell.textContent = 'O';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
